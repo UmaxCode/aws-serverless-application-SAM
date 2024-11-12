@@ -1,4 +1,3 @@
-# Add your integration test environment initialization code here
 import boto3
 import os
 import pytest

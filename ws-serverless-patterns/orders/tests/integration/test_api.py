@@ -1,4 +1,3 @@
-# Add your API integration testing code here
 import json
 import requests
 import logging
