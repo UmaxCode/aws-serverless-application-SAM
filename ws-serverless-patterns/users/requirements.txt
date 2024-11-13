@@ -1,3 +1,6 @@
 datetime
 boto3
 python-jose
+moto==3.1.19
+pytest-freezegun
+requests
