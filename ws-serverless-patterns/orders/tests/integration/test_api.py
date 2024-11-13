@@ -75,8 +75,7 @@ def test_get_order(global_config, orders_endpoint, user_token):
   assert order_info['totalAmount'] == 19.97
   assert order_info['restaurantId'] == 1
   assert len(order_info['orderItems']) == 2
-
-
+  
 def test_list_orders(global_config, orders_endpoint, user_token):
   response = requests.get(orders_endpoint,
       headers={'Authorization': user_token, 'Content-Type': 'application/json'}
@@ -87,7 +86,7 @@ def test_list_orders(global_config, orders_endpoint, user_token):
   assert orders['orders'][0]['totalAmount'] == 19.97
   assert orders['orders'][0]['restaurantId'] == 1
   assert len(orders['orders'][0]['orderItems']) == 2  
-
+  
 def test_edit_order(global_config, orders_endpoint, user_token):
   print(f"Modifying order {global_config['orderId']}")
 
@@ -152,7 +151,6 @@ def test_cancel_order_in_wrong_status(global_config, orders_endpoint, user_token
   # Verify OrderStatusError exception was raised because status not 'PLACED' as expected.
   assert response.status_code == 400
 
-
 def test_create_order_idempotency(global_config, orders_endpoint, user_token):
 
   order_details = {
@@ -191,3 +189,4 @@ def test_create_order_idempotency(global_config, orders_endpoint, user_token):
   response = requests.get(orders_endpoint, headers=header_data)
   orders = json.loads(response.text)
   assert len(orders['orders']) == 2
+  
