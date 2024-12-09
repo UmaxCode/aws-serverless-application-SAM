@@ -170,7 +170,7 @@ Resources:
             Method: delete
             RestApiId: !Ref WorkshopApiGateway
 
-  IdempotencyTable:
+  IdempoencyTable:
     Type: AWS::DynamoDB::Table
     Properties:
       AttributeDefinitions:
